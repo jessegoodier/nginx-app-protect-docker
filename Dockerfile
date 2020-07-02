@@ -26,4 +26,5 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY etc/nginx/* /etc/nginx/
 COPY entrypoint.sh  ./
 
+EXPOSE 80
 CMD ["sh", "/entrypoint.sh"] 
