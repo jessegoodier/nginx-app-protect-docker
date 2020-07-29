@@ -12,7 +12,7 @@ RUN yum -y install wget ca-certificates epel-release
 RUN wget -P /etc/yum.repos.d https://cs.nginx.com/static/files/nginx-plus-7.repo
 RUN wget -P /etc/yum.repos.d https://cs.nginx.com/static/files/app-protect-signatures-7.repo
 # Install NGINX App Protect
-RUN yum -y install app-protect app-protect-attack-signatures \
+RUN yum -y install app-protect app-protect-attack-signatures app-protect-threat-campaigns \
     && yum clean all \
     && rm -rf /var/cache/yum 
 #    && rm -rf /etc/ssl/nginx
@@ -23,8 +23,9 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     
 # Copy configuration files  
 RUN rm /etc/nginx/conf.d/default.conf
-COPY etc/nginx/* /etc/nginx/
+COPY etc/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY etc/nginx/log-default.json /etc/nginx/ 
 COPY entrypoint.sh  ./
 
-EXPOSE 80
+EXPOSE 80 
 CMD ["sh", "/entrypoint.sh"] 
